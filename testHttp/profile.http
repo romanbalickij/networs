@@ -1,0 +1,148 @@
+###
+GET http://127.0.0.1:8000/api/profile
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/profile/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "email" :"user@user.com",
+    "name" :"Roman balu",
+    "surname" :"cff",
+    "nickname": "test  4f3",
+    "description" :"Mouse was bristling all over, and both creatures hid their faces in their ",
+    "location" :"Ivano-Frankivsk",
+    "url" :"fisher.net",
+    "activity_status" :"busy",
+    "locale" :"en",
+    "balance" :1,
+    "phone" :"000000000",
+    "address" :"17238 Ryan Pine Apt. 985 Tarachester, MA 95935",
+    "business_address" :"1397 Jarret Divide Suite 825",
+    "tax_number" :"IL038074743869642886087",
+    "ui_prompts": "11"
+
+}
+###
+DELETE http://127.0.0.1:8000/api/profile/delete
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/profile/settings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+###
+
+PATCH http://127.0.0.1:8000/api/profile/settings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "theme" :"dark",
+    "page_post_visibility" : "public",
+
+
+    "display_online_status" : false,
+    "display_subscriber_number" : true,
+    "auto_prolong_subscription" : true,
+
+    "reaction" : true,
+    "subscription" : true,
+    "donation"  : true,
+    "unread_message" : true,
+    "comment_response" : true,
+    "invoice" : true,
+    "promotion'"  : true
+
+}
+
+###
+GET http://127.0.0.1:8000/api/profile/managed-accounts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+PATCH http://127.0.0.1:8000/api/profile/managed-accounts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "managed_account_id": 1
+}
+
+###
+
+GET http://127.0.0.1:8000/api/profile/info
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/profile/statistics
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/profile/interactions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+PATCH http://127.0.0.1:8000/api/profile/withdrawal-balance
+Authorization: Bearer {{token}}
+Content-Type: application/json
+# payment_type  credit_card/crypto
+# crypto_type tron (TRC-20), ethereum (ERC-20)
+# crypto_address ... env.example find test address
+
+{
+    "sum": 1,
+    "code": 123,
+    "payment_type": "crypto",
+    "crypto_type": "ethereum",
+    "crypto_address": "0x349EdB8A554d8CC95A62BcdD1E6C08d0390428cA"
+}
+
+###
+POST http://127.0.0.1:8000/api/profile/withdrawal-confirmed-send
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+DELETE http://127.0.0.1:8000/api/profile/avatar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+###
+DELETE http://127.0.0.1:8000/api/profile/background
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/profile/my-landing
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/profile/my-landing
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+ "main" : true,
+  "me" : true,
+  "img": ["send one image if the main , or multi images "]
+}
+
+###
+DELETE http://127.0.0.1:8000/api/profile/my-landing/19
+Authorization: Bearer {{token}}
+Content-Type: application/json

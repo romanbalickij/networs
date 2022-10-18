@@ -1,0 +1,10 @@
+###
+GET http://127.0.0.1:8000/api/subscriptions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+DELETE http://127.0.0.1:8000/api/subscriptions/992/cancel
+Authorization: Bearer {{token}}
+Content-Type: application/json
+

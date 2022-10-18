@@ -1,0 +1,25 @@
+###
+GET http://127.0.0.1:8000/api/invoices
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/invoices/exports
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+###
+GET http://127.0.0.1:8000/api/invoices/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/invoices/2/download
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+

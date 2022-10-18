@@ -1,0 +1,28 @@
+###
+GET http://127.0.0.1:8000/api/referral-links
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/referral-links
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+"name": "test"
+}
+
+###
+DELETE http://127.0.0.1:8000/api/referral-links/4504
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/referral-links/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+

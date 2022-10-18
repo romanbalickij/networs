@@ -1,0 +1,9 @@
+POST http://127.0.0.1:8000/api/donations
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "creator_id": 3,
+    "sum": 1,
+    "payment_method_id": 104
+}

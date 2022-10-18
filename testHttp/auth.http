@@ -1,0 +1,97 @@
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+
+{
+    "email":"roman@roman121",
+    "password":"roman@roman12",
+    "password_confirmation": "roman@roman12"
+
+
+}
+
+###
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+    "email":"user@user.com",
+    "password":"user@user.com"
+}
+
+> {%
+  client.global.set('token', response.body.access_token)
+ %}
+
+###
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+    "email":"roman@roman12",
+    "password":"roman@roman12"
+}
+
+> {%
+  client.global.set('token', response.body.access_token)
+ %}
+
+
+###
+POST http://127.0.0.1:8000/api/logout
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST http://127.0.0.1:8000/api/forgot-password
+Content-Type: application/json
+
+{
+    "email": "user@user.com"
+}
+###
+
+GET http://127.0.0.1:8001/api/reset-password/123
+Content-Type: application/json
+
+{
+    "email": "roman@roman.in.ua"
+}
+###
+
+
+POST http://127.0.0.1:8000/api/reset-password
+Content-Type: application/json
+
+{
+"token": "4430a72625c963c8acc76afb493c33e222a039327d72a33be43e68db8934f44b",
+ "email": "roman@roman.in.ua",
+"password": "roman@roman",
+"password_confirmation": "roman@roman"
+}
+
+###
+
+
+###
+POST http://127.0.0.1:8000/api/available-account
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "email" : "user@user.com"
+}
+
+###
+GET http://127.0.0.1:8001/api/paymentMethods
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST http://127.0.0.1:8000/api/paymentMethods
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "token": "tok_visa"
+}

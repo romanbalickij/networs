@@ -1,0 +1,156 @@
+
+
+###
+POST http://127.0.0.1:8000/api/posts/1/reactions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "reaction" : "🔥",
+    "type": "fire"
+}
+
+###
+
+###
+POST http://127.0.0.1:8001/api/posts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "text": "<p>test to add files id to post</p>",
+    "access": "public",
+    "is_ppv": true,
+    "ppv_price": 0,
+    "visible_until": "30-07-2022",
+    "attachments": [352782, 352781]
+}
+###
+GET http://127.0.0.1:8000/api/posts?sortType=hot
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+
+###
+DELETE http://127.0.0.1:8000/api/posts/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+###
+GET http://127.0.0.1:8000/api/posts/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+PATCH http://127.0.0.1:8000/api/posts/1/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "text" : "test  update post",
+    "access" : "public",
+    "visible_until" : "2024-11-14"
+
+}
+
+
+
+
+###
+GET http://127.0.0.1:8000/api/posts/1/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+
+
+###
+POST http://127.0.0.1:8000/api/posts/77/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "content" : "102 post user 1"
+}
+###
+
+###
+POST http://127.0.0.1:8000/api/posts/1/comments/118435/replies
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "content" : "1234"
+}
+###
+
+###
+POST http://127.0.0.1:8000/api/posts/6/bookmark
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+
+###
+POST http://127.0.0.1:8000/api/posts/3/pinned
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+
+
+
+###
+
+
+###
+GET http://127.0.0.1:8000/api/posts/1/statistics
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+#{
+#    "from": "2020-11-24",
+#    "to"  : "2022-11-26"
+#}
+
+
+
+###
+GET http://127.0.0.1:8000/api/posts/best-characteristics
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+
+###
+POST http://127.0.0.1:8000/api/posts/1/interest
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/posts/1/clicks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/posts/77/unlock
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "payment_method_id": 4
+}
+
+
+
+
+

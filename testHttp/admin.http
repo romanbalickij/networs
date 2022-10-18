@@ -1,0 +1,180 @@
+###
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+    "email":"admin@admin.com",
+    "password":"user@user.com"
+}
+> {%
+  client.global.set('token', response.body.access_token)
+ %}
+
+###
+GET http://127.0.0.1:8000/api/admin/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+PATCH http://127.0.0.1:8000/api/admin/users/3/verified
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+PATCH http://127.0.0.1:8000/api/admin/users/3/blocked
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+PATCH http://127.0.0.1:8000/api/admin/users/3/unblocked
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+PATCH http://127.0.0.1:8000/api/admin/users/3/switch-role
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "role": "user"
+}
+
+###
+GET http://127.0.0.1:8000/api/admin/invoices
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/admin/invoices/1/download
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/admin/invoices/exports
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/admin/pages
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept-Language: en
+
+###
+PATCH http://127.0.0.1:8000/api/admin/pages/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+
+    "title" : {"en": "Now every veliever has acces ", "ru": "title ru 1"},
+    "name" : "name",
+    "body": {"en": "Now every veliever has acces ", "ru": "title ru 1"}
+
+}
+
+###
+GET http://127.0.0.1:8000/api/admin/pages/1/interface
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+PATCH http://127.0.0.1:8000/api/admin/pages/interface/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+{
+    "name" : {"en": "Now every veliever has acces ", "ru": "title ru 1"},
+    "text" : {"en": "Now every veliever has acces ", "ru": "title ru 1"}
+}
+
+
+###
+POST http://127.0.0.1:8000/api/admin/pages/interface/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+{
+    "name" : {"en": "Now every veliever has acces ", "ru": "title ru 1"},
+    "text" : {"en": "Now every veliever has acces ", "ru": "title ru 1"}
+}
+
+###
+DELETE http://127.0.0.1:8000/api/admin/pages/11
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST http://127.0.0.1:8000/api/admin/pages
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "name",
+    "title": {"en": "Now every veliever has acces ", "ru": "title ru 1"},
+    "meta_description": {"en": "Now every veliever has acces ", "ru": "title ru 1"},
+    "robots": "robots",
+    "meta_tags": {"en": "Now every veliever has acces ", "ru": "title ru 1"},
+    "body": {"en": "Now every veliever has acces ", "ru": "title ru 1"}
+}
+
+
+###
+GET http://127.0.0.1:8000/api/admin/conversations/open-issue
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET http://127.0.0.1:8000/api/admin/conversations/current
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+GET http://127.0.0.1:8000/api/admin/conversations/3/messages
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+PATCH http://127.0.0.1:8000/api/admin/conversations/3/resign
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+PATCH http://127.0.0.1:8000/api/admin/conversations/3/join
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST http://127.0.0.1:8000/api/admin/conversations/3/reply
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "text": "text admin send support 2"
+
+}
+
+
+###
+PATCH http://127.0.0.1:8000/api/admin/comments/4/moderated
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+
+###
+POST http://127.0.0.1:8000/api/admin/conversations/promotion
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "text" : "test promotion"
+}

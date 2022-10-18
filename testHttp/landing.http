@@ -1,0 +1,31 @@
+GET http://127.0.0.1:8000/api/landing
+Content-Type: application/json
+Accept-Language: ru
+###
+
+
+GET http://127.0.0.1:8000/api/pages/footer
+Content-Type: application/json
+Accept-Language: ru
+###
+
+GET http://127.0.0.1:8000/api/pages/navigation
+Content-Type: application/json
+Accept-Language: ru
+###
+
+
+
+GET http://127.0.0.1:8000/api/pages/1
+Content-Type: application/json
+Accept-Language: ru
+###
+
+GET http://127.0.0.1:8000/api/pages
+Content-Type: application/json
+Accept-Language: ru
+###
+GET http://127.0.0.1:8000/api/pages-error/error_500
+Content-Type: application/json
+Accept-Language: ru
+###

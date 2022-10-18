@@ -1,0 +1,39 @@
+###
+GET http://127.0.0.1:8000/api/plans
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/plans
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "test 1",
+    "monthly_cost": 900,
+    "discount": 0,
+    "description": ""
+}
+
+
+###
+PATCH http://127.0.0.1:8000/api/plans/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "test 5",
+    "monthly_cost": 900,
+    "discount": 0,
+    "description": "text"
+}
+
+
+
+###
+DELETE http://127.0.0.1:8000/api/plans/111
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+

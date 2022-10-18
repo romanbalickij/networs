@@ -1,0 +1,41 @@
+###
+GET http://127.0.0.1:8000/api/campaigns
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/campaigns/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+###
+POST http://127.0.0.1:8000/api/campaigns
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "test 1"
+}
+
+
+###
+PATCH http://127.0.0.1:8000/api/campaigns/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "test 1 update"
+}
+
+###
+DELETE http://127.0.0.1:8000/api/campaigns/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/campaigns-click/1
+Authorization: Bearer {{token}}
+Content-Type: application/json

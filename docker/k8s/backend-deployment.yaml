@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      volumes:
+        - name: logs
+          emptyDir: {}
+        - name: cache
+          emptyDir: {}
+        - name: testing
+          emptyDir: {}
+        - name: sessions
+          emptyDir: {}
+        - name: views
+          emptyDir: {}
+      containers:
+        - name: backend-sha256-1
+          image: 788908097958.dkr.ecr.eu-central-1.amazonaws.com/project-versions:latest
+          imagePullPolicy: Always
+          ports:
+            - name: https
+              containerPort: 443
+#            - name: port8443
+#              containerPort: 8443
+            - name: port6001
+              containerPort: 6001
+          envFrom:
+            - configMapRef:
+                name: frankfurt-config
+            - secretRef:
+                name: frankfurt-secret
+          volumeMounts:
+            - name: logs
+              mountPath: /backend/storage/logs
+            - name: cache
+              mountPath: /backend/storage/framework/cache
+            - name: sessions
+              mountPath: /backend/storage/framework/sessions
+            - name: views
+              mountPath: /backend/storage/framework/views
+            - name: testing
+              mountPath: /backend/storage/framework/testing
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          env:
+            - name: POD_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name

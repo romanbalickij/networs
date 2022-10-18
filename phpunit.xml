@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <extensions>
+        <extension class="Qase\PHPUnit\Reporter"/>
+    </extensions>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="qase-phpunit">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+       <log type="coverage-html" target="./storage/test-coverage" lowUpperBound="35" highLowerBound="70"/>
+      </logging>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+        <report>
+            <html outputDirectory="tests/reports/coverage"/>
+        </report>
+    </coverage>
+    <php>
+        <server name="APP_ENV" value="testing"/>
+        <server name="BCRYPT_ROUNDS" value="4"/>
+        <server name="CACHE_DRIVER" value="array"/>
+        <server name="DB_CONNECTION" value="mysql"/>
+         <server name="DB_DATABASE" value="thefans"/>
+        <server name="MAIL_MAILER" value="array"/>
+        <server name="QUEUE_CONNECTION" value="sync"/>
+        <server name="SESSION_DRIVER" value="array"/>
+        <server name="TELESCOPE_ENABLED" value="false"/>
+
+        <env name="QASE_REPORT" value="1"/>
+        <env name="QASE_PROJECT_CODE" value="THEFANS" force="true"/>
+
+<!--        <env name="QASE_ENVIRONMENT_ID" value="1" force="true" />-->
+    </php>
+</phpunit>

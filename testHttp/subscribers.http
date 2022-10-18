@@ -1,0 +1,16 @@
+###
+GET http://127.0.0.1:8000/api/subscribers?group=Friends
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/subscribers/1181
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+
+     "plan_id": 2361
+
+}

@@ -1,0 +1,21 @@
+FROM trafex/php-nginx:2.5.0
+
+ARG XDEBUG
+
+
+USER root
+
+RUN ln -s /usr/sbin/php-fpm8 /usr/sbin/php-fpm
+
+RUN apk add --no-cache git php8-tokenizer php8-fileinfo php8-xmlwriter php8-pdo php8-pdo_mysql openssh php8-exif \
+    && if [ "$XDEBUG" = "true" ]; then apk add --no-cache php8-xdebug; fi \
+    && rm -rf /tmp/* \
+    && rm -rf /var/cache/apk/*
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# SSH for XDebug
+RUN ssh-keygen -t rsa -q -f "/root/.ssh/id_rsa" -N "" && ssh-keygen -A
+RUN echo "root:T653@2eyY@7er6@upX4" | chpasswd
+RUN echo "StrictHostKeyChecking=no" >> /etc/ssh/ssh_config
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config

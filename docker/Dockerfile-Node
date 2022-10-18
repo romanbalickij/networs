@@ -1,0 +1,15 @@
+
+ARG NODE_VERSION
+ARG NPM_VERSION
+
+# This stage installs our modules
+FROM mhart/alpine-node:slim-$NODE_VERSION
+
+# If you have native dependencies, you'll need extra tools
+RUN apk add --no-cache npm
+RUN npm install -g npm@$NPM_VERSION
+#RUN npm ci
+
+RUN apk add --no-cache tini
+ENTRYPOINT ["/sbin/tini", "--"]
+test delete

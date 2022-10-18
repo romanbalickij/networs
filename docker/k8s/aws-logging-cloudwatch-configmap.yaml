@@ -1,0 +1,21 @@
+# https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html
+
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: aws-logging
+  namespace: aws-observability
+  labels:
+data:
+  # Configuration files: server, input, filters and output
+  # ======================================================
+  flb_log_cw: "true"  #ships fluent-bit process logs to CloudWatch
+
+  output.conf: |
+    [OUTPUT]
+        Name cloudwatch
+        Match kube.*
+        region eu-central-1
+        log_group_name fluent-bit-cloudwatch
+        log_stream_prefix from-fluent-bit-
+        auto_create_group true

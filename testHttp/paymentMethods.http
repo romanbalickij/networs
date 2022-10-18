@@ -1,0 +1,14 @@
+###
+GET http://127.0.0.1:8002/api/paymentMethods
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST http://127.0.0.1:8002/api/paymentMethods
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "token": "tok_visa",
+    "name": "Gold UniCredit"
+}

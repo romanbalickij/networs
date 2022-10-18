@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: backend
+  name: backend-tcp
+  namespace: default
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+  #  alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ports:
+#    - protocol: TCP
+#      nodePort: 30899
+#      port: 443
+#      targetPort: 443
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 30899
+#    - name: websocket-port
+#      protocol: TCP
+#      port: 8443
+#      targetPort: 8443
+#      nodePort: 30897
+#    - name: websocket-port2
+#      protocol: TCP
+#      port: 6001
+#      targetPort: 6001
+#      nodePort: 30896
+  selector:
+    app: backend
+  #sessionAffinity: None
+  type: LoadBalancer
+
+#TCP_UDP

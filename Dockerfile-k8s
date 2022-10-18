@@ -1,0 +1,17 @@
+
+FROM europe-central2-docker.pkg.dev/artifact-repos/docker/backend-php8.0:latest
+
+WORKDIR /backend
+
+COPY ./composer.json .
+RUN composer install --no-scripts --no-interaction --ignore-platform-reqs --prefer-dist
+
+COPY ./ /backend
+COPY ./docker/nginx/backend-certbot.conf /etc/nginx/conf.d/backend.conf
+COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./docker/php/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
+COPY ./docker/php/php.ini /etc/php8/php.ini
+COPY ./docker/supervisor/supervisord-k8s.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./docker/run-k8s.sh /home/run.sh
+COPY ./docker/certbot/conf/ /etc/letsencrypt
+#COPY .env.production .env

@@ -1,0 +1,71 @@
+###
+GET http://127.0.0.1:8000/api/users/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/users/blocked
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/users/3/invoices
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+###
+POST http://127.0.0.1:8000/api/users/2/bookmark
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/users/5/blocked
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/users/2/unblock
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/users/creator-suggestions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/users/1032
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/users/2/posts?search=PROVES his guilt,
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/users/nickname/@Ignore_Diodio_21
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/creator/Leonora_Senger_N2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:8000/api/users/1513/posts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/users/1/refresh-token
+Authorization: Bearer {{token}}
+Content-Type: application/json

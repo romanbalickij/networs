@@ -1,0 +1,21 @@
+###
+GET http://127.0.0.1:8000/api/account-managers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/account-managers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "email" : "larson.ansley@example.net"
+}
+
+
+###
+DELETE http://127.0.0.1:8000/api/account-managers/756
+Authorization: Bearer {{token}}
+Content-Type: application/json
+

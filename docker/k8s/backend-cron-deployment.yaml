@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-cron
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-cron
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: backend-cron
+    spec:
+      volumes:
+#        - name: logs
+#          emptyDir: { }
+        - name: cache
+          emptyDir: { }
+        - name: testing
+          emptyDir: { }
+        - name: sessions
+          emptyDir: { }
+        - name: views
+          emptyDir: { }
+      containers:
+        - name: backend-cron-sha256-1
+          image: 788908097958.dkr.ecr.eu-central-1.amazonaws.com/project-versions:latest
+          imagePullPolicy: Always
+          command: ["php", "artisan", "schedule:work"]
+          ports:
+            - containerPort: 443
+          envFrom:
+            - configMapRef:
+                name: frankfurt-config
+            - secretRef:
+                name: frankfurt-secret
+          volumeMounts:
+#            - name: logs
+#              mountPath: /backend/storage/logs
+            - name: cache
+              mountPath: /backend/storage/framework/cache
+            - name: sessions
+              mountPath: /backend/storage/framework/sessions
+            - name: views
+              mountPath: /backend/storage/framework/views
+            - name: testing
+              mountPath: /backend/storage/framework/testing
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          env:
+            - name: POD_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+

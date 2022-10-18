@@ -1,0 +1,110 @@
+###
+GET http://127.0.0.1:8000/api/conversations/3/messages
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+
+
+###
+GET http://127.0.0.1:8000/api/conversations?group=Friends2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/conversations/3/send
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "text" : "test",
+    "is_ppv": true,
+    "ppv_price": 200
+
+}
+
+
+###
+POST http://127.0.0.1:8000/api/conversations/message/19/bookmark
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+DELETE http://127.0.0.1:8000/api/conversations/message/10/delete
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/conversations/message/10/read
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+###
+PATCH http://127.0.0.1:8000/api/conversations/message/reads
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "messages": [9,10]
+
+}
+
+
+
+###
+POST http://127.0.0.1:8000/api/conversations/message/9/reactions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "reaction" : "🔥",
+    "type": "fire"
+}
+
+
+
+
+###
+POST http://127.0.0.1:8000/api/conversations
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "recipient": 316
+}
+
+
+###
+POST http://127.0.0.1:8000/api/conversations/mass-send
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "text": "text group_id 2",
+    "is_ppv": 1,
+    "group_id": 3004,
+    "ppv_price": 200,
+    "attachments": [206]
+}
+
+###
+GET http://127.0.0.1:8000/api/conversations/support
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/conversations/message/9/unlock
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "payment_method_id": 1514
+}
+
+
+

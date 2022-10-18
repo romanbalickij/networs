@@ -1,0 +1,45 @@
+###
+POST http://127.0.0.1:8000/api/subscriberGroup
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "test 6"
+
+}
+
+###
+PATCH http://127.0.0.1:8000/api/subscriberGroup/3004
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "test2"
+}
+
+
+
+###
+PATCH http://127.0.0.1:8000/api/subscriberGroup/1/subscription/2/join
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+
+###
+DELETE http://127.0.0.1:8000/api/subscriberGroup/subscription/2/delete
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+DELETE http://127.0.0.1:8000/api/subscriberGroup/3005/delete
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+GET http://127.0.0.1:8000/api/subscriberGroup
+Authorization: Bearer {{token}}
+Content-Type: application/json
+

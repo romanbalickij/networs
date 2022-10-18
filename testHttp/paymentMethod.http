@@ -1,0 +1,21 @@
+##
+GET http://127.0.0.1:8000/api/paymentMethods
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+###
+POST http://127.0.0.1:8000/api/paymentMethods
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "token": "tok_visa"
+}
+
+
+###
+DELETE http://127.0.0.1:8000/api/paymentMethods/1513
+Authorization: Bearer {{token}}
+Content-Type: application/json
+

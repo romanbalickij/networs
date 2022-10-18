@@ -1,0 +1,47 @@
+###
+GET http://127.0.0.1:8000/api/attachments/12
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+###
+GET http://127.0.0.1:8000/api/attachments/12/download
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+POST http://127.0.0.1:8000/api/attachments/2/bookmark
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+###
+POST http://127.0.0.1:8000/api/attachments/uploads
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#{
+#    "main": "main file required",
+#    "blur": "image file not required",
+#    "poster": "image file not required"
+#}
+
+
+###
+###
+POST http://127.0.0.1:8000/api/attachments/uploads
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#{
+#    "main": "main url required",
+#    "type": "video or image",
+#    "blur": "image url not required",
+#    "poster": "image url not required",
+#    "other" : "file  not required"
+#}
+
+
+###
